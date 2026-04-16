@@ -1,0 +1,23 @@
+Issues Faced & Fixes
+1. Dependency Conflicts
+Cause: Mixing Hardhat v3 + incompatible plugins
+Fix: Downgraded to Hardhat v2 ecosystem
+2. Hardhat v3 Issues
+ESM-only
+Missing exports like `run`, `ethers`
+Config errors (`http` not exported)
+Fix: Avoid v3 for now
+3. TypeScript Error (HH13)
+Cause: ts-node missing
+Fix:
+npm install --save-dev ts-node typescript
+4. Etherscan V1 Endpoint Error
+Cause: Old verify plugin
+Fix:
+npm install --save-dev @nomicfoundation/hardhat-verify@^2.0.0 --legacy-peer-deps
+
+Always match plugin versions with Hardhat version
+Avoid Hardhat v3 unless necessary (still evolving)
+Recompile before verification
+Never change contract after deployment before verifying
+Use correct constructor arguments 
